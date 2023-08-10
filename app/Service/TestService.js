@@ -6,9 +6,9 @@ class TestService {
      
     }
     
-    testService(){
-        let testRepository = new TestRepository();
-        return testRepository.testRepository();
+     async testService(city){
+        let testRepository = new TestRepository();    
+        return  await testRepository.testRepository(city);
 
    }
 
