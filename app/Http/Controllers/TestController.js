@@ -6,9 +6,9 @@ class TestController {
      
     }
 
-   async testController(city) {
+   async testController(cep) {
         let testService = new TestService();
-        return await testService.testService(city);
+        return await testService.testService(cep);
     }
 
 }

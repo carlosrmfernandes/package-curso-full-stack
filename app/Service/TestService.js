@@ -1,14 +1,21 @@
 const {TestRepository} = require('../Repository/TestRepository.js');
-
+const axios = require('axios');
+const microservices = require('../../config/microservices.js')
 class TestService {
 
     constructor() {
      
     }
     
-     async testService(city){
-        let testRepository = new TestRepository();    
-        return  await testRepository.testRepository(city);
+     async testService(cep){
+   
+      return await axios.get(`${microservices.via_cep}/${cep}/json/`)      
+      .then(function (response) { 
+         return response.data;
+      })
+      .catch(function (error) {                   
+         return error?.response?.data;
+      })
 
    }
 
